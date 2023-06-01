@@ -1,0 +1,55 @@
+class Mahasiswa:
+    def _init_(self, nama, nim, jurusan):
+        self.nama = nama
+        self.nim = nim
+        self.jurusan = jurusan
+    
+    def tampilkan_info(self):
+        print("Nama:", self.nama)
+        print("NIM:", self.nim)
+        print("Jurusan:", self.jurusan.NamaJurusan)
+
+
+class Jurusan:
+    def _init_(self, nama_jurusan):
+        self.NamaJurusan = nama_jurusan
+        self.DaftarMahasiswa = []
+    
+    def tambah_mahasiswa(self, mahasiswa):
+        self.DaftarMahasiswa.append(mahasiswa)
+    
+    def tampilkan_daftar_mahasiswa(self):
+        print("Daftar Mahasiswa", self.NamaJurusan)
+        for mahasiswa in self.DaftarMahasiswa:
+            mahasiswa.tampilkan_info()
+
+
+class Universitas:
+    def _init_(self, nama_universitas):
+        self.NamaUniversitas = nama_universitas
+        self.DaftarJurusan = []
+    
+    def tambah_jurusan(self, jurusan):
+        self.DaftarJurusan.append(jurusan)
+    
+    def tampilkan_daftar_jurusan(self):
+        print("Daftar Jurusan di", self.NamaUniversitas)
+        for jurusan in self.DaftarJurusan:
+            print(jurusan.NamaJurusan)
+            
+# membuat tampilan objek universitas
+universitas_xyz = Universitas("XYZ University")
+
+# membuat tampilan objek jurusan
+jurusan_ti = Jurusan("Teknik Informatika")
+universitas_xyz.tambah_jurusan(jurusan_ti)
+
+# membuat tampilan objek mahasiswa
+mahasiswa_andi = Mahasiswa("Kalian masing", "Kalian masing", jurusan_ti)
+jurusan_ti.tambah_mahasiswa(mahasiswa_andi)
+
+# membuat tampilan daftar jurusan
+universitas_xyz.tampilkan_daftar_jurusan()
+
+# membuat tampilan daftar mahasiswa
+jurusan_ti.tampilkan_daftar_mahasiswa()
